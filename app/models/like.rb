@@ -14,4 +14,8 @@ class Like < ApplicationRecord
   def decrement_user_likecounter
     post.decrement(:likes_counter).save
   end
+
+  # VALIDATIONS
+  # should validate uniqueness of author_id scoped to post_id
+  validates :author_id, uniqueness: { scope: :post_id }
 end
