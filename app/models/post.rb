@@ -29,6 +29,8 @@ class Post < ApplicationRecord
   end
 
   # VALIDATIONS
+  # Title must not be blank.
+  validates :title, presence: true
   # Title must not exceed 250 characters.
   validates :title, length: { maximum: 250 }
   # CommentsCounter must be an integer greater than or equal to zero.

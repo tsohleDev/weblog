@@ -67,6 +67,12 @@
   <ul>
     <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
   </ul>
+
+  ### Entity Relation Diagram
+  <div align="center">
+  <img src="./erd.png" alt="logo" width="640"  height="400" />
+  </div>
+  
 </details>
 
 <br />

@@ -16,6 +16,6 @@ class Comment < ApplicationRecord
   end
 
   # VALIDATIONS
-  # text must not be blank. and must not exceed 1000 characters.
-  validates :text, presence: true, length: { maximum: 1000 }
+  # text must not be blank. and must not exceed 100 characters.
+  validates :text, presence: true, length: { maximum: 100 }
 end
