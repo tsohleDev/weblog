@@ -12,6 +12,11 @@ RSpec.describe Post, type: :request do
         get '/users/1/posts'
         expect(response.body).to include('Listing posts')
       end
+
+      it 'should have have_http_status 200' do
+        get '/users/1/posts'
+        expect(response).to have_http_status(200)
+      end
     end
   end
 

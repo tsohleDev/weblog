@@ -7,6 +7,16 @@ RSpec.describe User, type: :request do
         get '/'
         expect(response).to render_template(:index)
       end
+
+      it 'should include text "Listing users"' do
+        get '/'
+        expect(response.body).to include('Listing users')
+      end
+
+      it 'should have have_http_status 200' do
+        get '/'
+        expect(response).to have_http_status(200)
+      end
     end
   end
 
