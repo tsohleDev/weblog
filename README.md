@@ -37,15 +37,11 @@
 
 # 📖 WEBLOG <a name="about-project"></a>
 
-> Description
-
 **Weblog** is social medial like ruby on rails project, it is designed for users to share thoughts and ideas in a web platform
 
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
-
-> Client, Server side and database information
 
 <details>
 <summary>Client</summary>
@@ -80,37 +76,17 @@
 
 ### Key Features <a name="key-features"></a>
 
-> What features best describe the application
-
 - **User Authentication**
 - **Database connection**
 - **MVC**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- LIVE DEMO -->
-
-<!-- ## 🚀 Live Demo <a name="live-demo"></a>
-
-> Add a link to your deployed project.
-
-- [Live Demo Link](https://google.com) -->
-
-<!-- <p align="right">(<a href="#readme-top">back to top</a>)</p> -->
-
-<!-- GETTING STARTED -->
-
-
-
 ## 💻 Getting Started <a name="getting-started"></a>
-
-> Describe how a new developer could make use of your project.
 
 To get a local copy up and running, follow these steps.
 
 ### Prerequisites
-
-> You need the following tools be installed in your computer:
 
 > - [Rails](https://guides.rubyonrails.org/)
 > - [Git](https://www.linode.com/docs/guides/how-to-install-git-on-linux-mac-and-windows/)
@@ -154,26 +130,11 @@ To run tests, run the following command:
   rspec spec/
 ```
 
-<!-- ### Deployment
-
-You can deploy this project using:
-
-<!--
-Example:
-
-```sh
-
-```
- --> -->
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- AUTHORS -->
 
 ## 👥 Authors <a name="authors"></a>
-
-> Mention all of the collaborators of this project.
-
 ## 👤 Tsohle Mokhemisi
 
 - GitHub: [@githubhandle](https://github.com/tsohleDev)
@@ -185,8 +146,6 @@ Example:
 <!-- FUTURE FEATURES -->
 
 ## 🔭 Future Features <a name="future-features"></a>
-
-> Fatures that will be added to the project.
 
 - [ ] **Video Streaming**
 - [ ] **Catching**
@@ -221,22 +180,6 @@ If you like this project please give us a star
 
 I would like to thank Microverse for their great content on rails
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- FAQ (optional) -->
-
-<!-- ## ❓ FAQ (OPTIONAL) <a name="faq"></a>
-
-> Add at least 2 questions new developers would ask when they decide to use your project.
-
-- **[Question_1]**
-
-  - [Answer_1]
-
-- **[Question_2]**
-
-  - [Answer_2]
- -->
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- LICENSE -->
