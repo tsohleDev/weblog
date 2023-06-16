@@ -166,8 +166,6 @@ Feel free to check the [issues page](../../issues/).
 
 ## ⭐️ Show your support <a name="support"></a>
 
-> Message to encourage readers to support
-
 If you like this project please give us a star
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -175,8 +173,6 @@ If you like this project please give us a star
 <!-- ACKNOWLEDGEMENTS -->
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
-
-> Credits
 
 I would like to thank Microverse for their great content on rails
 
