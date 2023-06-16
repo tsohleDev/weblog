@@ -1,0 +1,9 @@
+<div class="flex items-center w-full p-2 px-5 rounded-3xl my-10 bg-gray-300">
+  <%= image_tag(!user.photo ? 'avatar.png' : user.photo, alt: 'Image Description', class: 'h-[15vh]') %>
+
+  <a class="user--info px-10 py-4 mx-10 flex flex-col justify-center bg-slate-100 w-full" title="view user details" href="/users/<%= user.id %>">
+    <h2 class="text-[4em] font-bold"><%= user.name %></h2>
+      
+    <p class="text-25 font-bold self-end inline-block">Number of posts: <%= user.posts_counter%> </p>
+  </a>
+</div>
