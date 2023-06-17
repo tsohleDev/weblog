@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     end
   end
 
+  get '/users/:user_id/posts/:id/like', to: 'posts#like', as: 'like_post'
   # Defines the root path route ("/")
   root "users#index", as: :index
 end
