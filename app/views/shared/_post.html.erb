@@ -1,0 +1,33 @@
+<% text = post.text %>
+<% if truncate %>
+    <%text = post.text.truncate(100)%>
+<% end %>
+
+<div class='my-5'>
+    <div class='relative m-10 p-5 z-[2] bg-gray-300 rounded-3xl min-h-[15vh]'>
+        <% if !truncate %>
+            <div class='flex flex-row-reverse'>
+                <p class='text-[1em] mx-3 text-slate-700 font-semibold inline-block'>Likes: <%= post.likes_counter %></p>
+                <p class='text-[1em] mx-3 text-slate-700 font-semibold inline-block'>Comments: <%= post.comments_counter %></p>
+            </div>
+        <% end %>
+
+        <a href='/users/<%= @user.id %>/posts/<%= post.id %>'>
+            <h1 class='text-[2em] text-slate-700 font-semibold underline'><%= post.title %></h1>
+        </a>
+        <p class='text-[1em] py-5 px-3'><%= text %></p>
+
+        <% if truncate %>
+            <div class='flex flex-row-reverse'>
+                <p class='text-[1em] mx-3 text-slate-700 font-semibold inline-block'>Likes: <%= post.likes_counter %></p>
+                <p class='text-[1em] mx-3 text-slate-700 font-semibold inline-block'>Comments: <%= post.comments_counter %></p>
+            </div>
+        <% end %>
+    </div>
+
+    <% if comments %>
+        <div class='mx-10 p-8 z-[1] bg-gray-100 rounded-3xl min-h-[15vh] translate-y-[-4rem]'>
+            <%= render partial: 'shared/comment', collection: post.comments%>
+        </div>
+    <% end %>
+</div>
