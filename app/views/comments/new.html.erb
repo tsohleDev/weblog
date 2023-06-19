@@ -1,0 +1,8 @@
+<h1 class='text-[3em] text-slate=500 text-center'>New Comment</h1>
+
+<%= form_with model: [@user, @post, @comment], url: user_post_comments_path, class: 'flex flex-col m-auto' do |form| %>
+    <div class='flex flex-col my-5 m-auto'>
+      <%= form.text_area :text, required: true, autofocus: true, placeholder: 'Text...', class: 'text-[2em] w-[60vw] bg-slate-300 mx-3 text-slate-700 font-semibold inline-block' %>
+    </div>
+    <%= form.submit "submit" %>
+<% end %>
