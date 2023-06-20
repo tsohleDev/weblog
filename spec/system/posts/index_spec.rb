@@ -21,22 +21,22 @@ RSpec.describe 'posts/index', type: :system do
   end
 
   describe 'posts url' do
-    # context 'user profile' do
-    #   it 'should show user\'s name' do
-    #     visit user_posts_path(user_id: @user.id)
-    #     expect(page).to have_content(@user.name)
-    #   end
+    context 'user profile' do
+      it 'should show user\'s name' do
+        visit user_posts_path(user_id: @user.id)
+        expect(page).to have_content(@user.name)
+      end
 
-    #   it 'should show user\'s posts count' do
-    #     visit user_posts_path(user_id: @user.id)
-    #     expect(page).to have_content("Number of posts: #{@posts.count}")
-    #   end
+      it 'should show user\'s posts count' do
+        visit user_posts_path(user_id: @user.id)
+        expect(page).to have_content("Number of posts: #{@posts.count}")
+      end
 
-    #   it 'should show user\'s avatar image' do
-    #     visit user_posts_path(user_id: @user.id)
-    #     expect(page).to have_css("img[src*='#{@user[:photo]}']")
-    #   end
-    # end
+      it 'should show user\'s avatar image' do
+        visit user_posts_path(user_id: @user.id)
+        expect(page).to have_css("img[src*='#{@user[:photo]}']")
+      end
+    end
 
     context 'post list' do
       it 'should redirect to post show page' do
