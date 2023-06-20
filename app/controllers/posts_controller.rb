@@ -8,8 +8,8 @@ class PostsController < ApplicationController
     # use includes to avoid n+1 queries
     # find the user by id and include posts and comments
     @user = User.includes(:posts, posts: [:comments])
-                .where(posts: { id: params[:id] })
-                .find_by_id(params[:user_id]) || not_found
+      .where(posts: { id: params[:id] })
+      .find_by_id(params[:user_id]) || not_found
 
     # find the post by id
     @post = @user.posts.find_by_id(params[:id]) || not_found
