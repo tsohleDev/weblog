@@ -14,6 +14,11 @@ RSpec.describe 'posts/show', type: :system do
 
   describe 'show url' do
     context 'posts' do
+      it 'should show author name' do
+        visit user_post_path(user_id: @user.id, id: @post.id)
+        expect(page).to have_content(@post.author.name)
+      end
+
       it 'should show posts titles' do
         visit user_post_path(user_id: @user.id, id: @post.id)
         expect(page).to have_content(@post.title)
