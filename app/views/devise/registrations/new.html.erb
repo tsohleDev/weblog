@@ -3,22 +3,31 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <div class='flex flex-col my-5 m-auto'>
+    <%= f.text_field :name, required: true, autofocus: true, placeholder: 'Full Name', class: 'text-[2em] w-[60vw] bg-slate-300 mx-3 text-slate-700 font-semibold inline-block' %>
   </div>
 
-  <div class="field">
-    <%= f.label :password %>
+  <div class='flex flex-col my-5 m-auto'>
+    <%= f.text_field :photo, required: false, autofocus: true, placeholder: 'Photo url', class: 'text-[2em] w-[60vw] bg-slate-300 mx-3 text-slate-700 font-semibold inline-block' %>
+  </div>
+
+  <div class='flex flex-col my-5 m-auto'>
+    <%= f.text_field :bio, required: true, autofocus: true, placeholder: 'Bio', class: 'text-[2em] w-[60vw] min-h-[5vh] bg-slate-300 mx-3 text-slate-700 font-semibold inline-block' %>
+  </div>
+
+  <div class='flex flex-col my-5 m-auto'>
+    <%= f.email_field :email, required: true, autofocus: true, placeholder: 'Email adress', class: 'text-[2em] w-[60vw] bg-slate-300 mx-3 text-slate-700 font-semibold inline-block' %>
+  </div>
+
+  <div class='flex flex-col my-5 m-auto'>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%= f.password_field :password, required: true, autofocus: true, placeholder: 'Password', autocomplete: "new-password", class: 'text-[2em] w-[60vw] bg-slate-300 mx-3 text-slate-700 font-semibold inline-block' %>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  <div class='flex flex-col my-5 m-auto'>
+    <%= f.password_field :password_confirmation, required: true, autofocus: true, autocomplete: "new-password", placeholder: 'Confirm Password', class: 'text-[2em] w-[60vw] bg-slate-300 mx-3 text-slate-700 font-semibold inline-block' %>
   </div>
 
   <div class="actions">
