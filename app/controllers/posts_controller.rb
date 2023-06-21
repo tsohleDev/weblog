@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!
+  
   def index
     @user = User.find_by_id(params[:user_id]) || not_found
     @posts = @user.posts
