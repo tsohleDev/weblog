@@ -1,4 +1,8 @@
 <div class='flex'>
     <h4 class='text-[1em] font-bold'> <%= comment.author.name %> : </h4>
     <p class='text-[1em] mx-2'> <%= comment.text %> </p>
+
+    <% if can? :destroy, comment %>
+        <%= button_to 'Delete', user_post_comment_path(comment.author, comment.post, comment), method: :delete, data: { confirm: 'Are you sure?' }, class: 'bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded justify-end' %>
+    <% end %>
 </div>

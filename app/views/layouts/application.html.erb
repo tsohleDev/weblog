@@ -12,6 +12,32 @@
   </head>
 
   <body>
+    <header>
+        <% # navigation with log in %>
+        <nav class="flex justify-between p-2 bg-slate-200">
+          <ul class="flex">
+            <li class="mr-6 text-[2em]"><%= link_to "Home", index_path %></li>
+            <li class="mr-6 text-[2em]"><%= link_to "Users", users_path %></li>
+            <%if user_signed_in? %>
+              <li class="mr-6 text-[2em]"><%= link_to "My Posts", user_posts_path(current_user.id) %></li>
+            <% end %>
+          </ul>
+          <ul class="flex">
+            <% if user_signed_in? %>
+              <li class="mr-6 text-[2em]"><%= link_to "Edit", edit_user_registration_path %></li>
+              <li class="mr-6 text-[2em]">
+                <%= form_with(url: destroy_user_session_path, method: :delete) do |form| %>
+                  <%= form.submit 'Sign Out' %>
+                <% end %>
+              </li>
+            <% else %>
+              <li class="mr-6 text-[2em]"><%= link_to "Log in", new_user_session_path %></li>
+              <li class="mr-6 text-[2em]"><%= link_to "Sign up", new_user_registration_path %></li>
+            <% end %>
+          </ul>
+        </nav>
+    </header>
+    
     <main class="container p-5 flex-col">
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
