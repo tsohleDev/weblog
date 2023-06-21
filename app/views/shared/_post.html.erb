@@ -3,7 +3,7 @@
     <%text = post.text.truncate(100)%>
 <% end %>
 
-<div class='my-5'>
+<div class='my-5 post'>
     <div class='relative m-10 p-5 z-[2] bg-gray-300 rounded-3xl min-h-[15vh]'>
         <% if !truncate %>
             <div class='flex flex-row-reverse'>
@@ -31,6 +31,10 @@
     <% if comments %>
         <div class='mx-10 p-8 z-[1] bg-gray-100 rounded-3xl min-h-[15vh] translate-y-[-4rem]'>
             <%= render partial: 'shared/comment', collection: post.comments%>
+        </div>
+    <% elsif post.comments.count > 0 %>
+        <div class='mx-10 p-8 z-[1] bg-gray-100 rounded-3xl min-h-[15vh] translate-y-[-4rem]'>
+            <%= render partial: 'shared/comment', locals: { comment: post.comments.first } %>
         </div>
     <% end %>
 </div>
