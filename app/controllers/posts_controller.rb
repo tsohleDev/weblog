@@ -47,7 +47,7 @@ class PostsController < ApplicationController
     # use includes to avoid n+1 queries
     post = Post.includes(:comments, :likes).find_by_id(params[:id]) || not_found
     authorize! :destroy, post
-    
+
     post.comments.destroy_all
     post.likes.destroy_all
 
@@ -63,7 +63,6 @@ class PostsController < ApplicationController
       end
     end
   end
-  
 
   def like
     @post = Post.find(params[:id])
