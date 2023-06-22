@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  load_and_authorize_resource
+  
   def new
     @comment = Comment.new
     @post = Post.find(params[:post_id])
@@ -15,7 +17,6 @@ class CommentsController < ApplicationController
 
   def destroy
     comment = Comment.find(params[:id]) || not_found
-    authorize! :destroy, comment
 
     respond_to do |format|
       if comment.destroy

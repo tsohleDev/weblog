@@ -1,9 +1,9 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
+  load_and_authorize_resource
 
   def index
     @user = User.find_by_id(params[:user_id]) || not_found
-    @posts = @user.posts
   end
 
   def show
@@ -12,9 +12,6 @@ class PostsController < ApplicationController
     @user = User.includes(:posts, posts: [:comments])
       .where(posts: { id: params[:id] })
       .find_by_id(params[:user_id]) || not_found
-
-    # find the post by id
-    @post = @user.posts.find_by_id(params[:id]) || not_found
   end
 
   def new
@@ -46,8 +43,7 @@ class PostsController < ApplicationController
   def destroy
     # use includes to avoid n+1 queries
     post = Post.includes(:comments, :likes).find_by_id(params[:id]) || not_found
-    authorize! :destroy, post
-    
+
     post.comments.destroy_all
     post.likes.destroy_all
 
@@ -63,10 +59,9 @@ class PostsController < ApplicationController
       end
     end
   end
-  
 
   def like
-    @post = Post.find(params[:id])
+    # @post = Post.find(params[:id])
     @like = current_user.likes.new
     @like.post_id = params[:id]
 
