@@ -4,6 +4,11 @@ class PostsController < ApplicationController
 
   def index
     @user = User.find_by_id(params[:user_id]) || not_found
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @user.posts, status: :ok }
+    end
   end
 
   def show
