@@ -1,1 +1,6 @@
 <%= render partial: 'shared/post', locals: { post: @post, truncate: false, comments: true }%>
+
+<% if can? :destroy, @post %>
+  <%= button_to 'Edit', user_post_path, method: :update, data: { confirm: 'Are you sure?' }  %>
+  <%= button_to 'Delete', user_post_path, method: :delete, data: { confirm: 'Are you sure?' }, class: 'bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded justify-end' %>
+<% end %>

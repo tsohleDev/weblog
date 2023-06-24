@@ -1,14 +1,17 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!
+  load_and_authorize_resource
+
   def index
     @user = User.find_by_id(params[:user_id]) || not_found
-    @posts = @user.posts
   end
 
   def show
-    @user = User.find_by_id(params[:user_id]) || not_found
-    @posts = @user.posts
-    @post = @posts.find_by_id(params[:id]) || not_found
-    @comments = @post.comments
+    # use includes to avoid n+1 queries
+    # find the user by id and include posts and comments
+    @user = User.includes(:posts, posts: [:comments])
+      .where(posts: { id: params[:id] })
+      .find_by_id(params[:user_id]) || not_found
   end
 
   def new
@@ -37,8 +40,28 @@ class PostsController < ApplicationController
     end
   end
 
+  def destroy
+    # use includes to avoid n+1 queries
+    post = Post.includes(:comments, :likes).find_by_id(params[:id]) || not_found
+
+    post.comments.destroy_all
+    post.likes.destroy_all
+
+    respond_to do |format|
+      if post.destroy
+        # Successfully deleted the record
+        flash[:success] = 'Post deleted successfully'
+        format.html { redirect_to "/users/#{current_user.id}/posts" }
+      else
+        # Failed to delete the record
+        flash.now[:error] = 'Error: Post could not be deleted'
+        format.html { render :show }
+      end
+    end
+  end
+
   def like
-    @post = Post.find(params[:id])
+    # @post = Post.find(params[:id])
     @like = current_user.likes.new
     @like.post_id = params[:id]
 

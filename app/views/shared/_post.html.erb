@@ -3,7 +3,7 @@
     <%text = post.text.truncate(100)%>
 <% end %>
 
-<div class='my-5'>
+<div class='my-5 post'>
     <div class='relative m-10 p-5 z-[2] bg-gray-300 rounded-3xl min-h-[15vh]'>
         <% if !truncate %>
             <div class='flex flex-row-reverse'>
@@ -11,8 +11,8 @@
                 <p class='text-[1em] mx-3 text-slate-700 font-semibold inline-block'>Comments: <%= post.comments_counter %></p>
             </div>
 
-            <%= link_to 'Like', like_post_url %>
-            <%= link_to 'Comment', new_user_post_comment_path(user_id: @user.id, post_id: post.id), class: 'm-auto text-red-700 text-[1.3em]'%>
+            <%= link_to 'Like', like_post_url, class: 'text-blue-700 text-[1.3em]' %>
+            <%= link_to 'Comment', new_user_post_comment_path(user_id: @user.id, post_id: post.id), class: 'm-auto mx-10 text-red-700 text-[1.3em]'%>
         <% end %>
 
         <a href='/users/<%= @user.id %>/posts/<%= post.id %>'>
@@ -31,6 +31,10 @@
     <% if comments %>
         <div class='mx-10 p-8 z-[1] bg-gray-100 rounded-3xl min-h-[15vh] translate-y-[-4rem]'>
             <%= render partial: 'shared/comment', collection: post.comments%>
+        </div>
+    <% elsif post.comments.count > 0 %>
+        <div class='mx-10 p-8 z-[1] bg-gray-100 rounded-3xl min-h-[15vh] translate-y-[-4rem]'>
+            <%= render partial: 'shared/comment', locals: { comment: post.comments.first } %>
         </div>
     <% end %>
 </div>
